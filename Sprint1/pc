@@ -19,3 +19,19 @@ begin
 	end
 end
 endmodule
+
+
+//Zhou version
+module PCCounter(PC_In, PC_Out, clk);
+    parameter SIZE = 32;
+    input [SIZE-1:0] PC_In;
+    output [SIZE-1:0] PC_Out;
+    reg [SIZE-1:0] PC_Out;
+    input clk;
+
+    always @(posedge clk)
+    begin
+	   PC_Out <= PC_In;	// Latch the input on clk
+	
+    end
+endmodule
