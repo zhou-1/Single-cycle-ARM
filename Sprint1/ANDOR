@@ -1,0 +1,19 @@
+module AND(bran, zroFlag, AndOutput);
+    input zroFlag, bran;
+    output AndOutput;
+
+    assign AndOutput = zroFlag & bran;
+
+endmodule
+
+
+
+module OR(unBran, inputAnd, OROutput);
+    input unBran, inputAnd;
+    output OROutput;
+
+
+    assign OROutput = unBran | inputAnd;
+
+
+endmodule
