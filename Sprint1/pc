@@ -1,0 +1,21 @@
+`timescale 1ns / 1ps
+					
+module PC_Counter(PC_Source, PC_reg_out, clk, rst, PC_reg_write_enable);
+parameter SIZE = 32;
+input [SIZE-1:0] PC_Source;
+input clk, rst, PC_reg_write_enable;
+output reg [SIZE-1:0] PC_reg_out;
+
+always @(posedge clk)
+begin
+	if (rst)
+		PC_reg_out <= 0;	// Clear output on reset
+	else
+	begin
+		if (PC_reg_write_enable)
+			PC_reg_out <= PC_Source;	// Latch the input on clk
+		else
+			PC_reg_out <= PC_reg_out;
+	end
+end
+endmodule
